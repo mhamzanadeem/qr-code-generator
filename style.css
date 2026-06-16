@@ -1,8 +1,9 @@
 :root{
-    --bcg-color: #001122;
+    --bcg-color: #131619;
+    --accent-color: #10B981;
     --primary-color: #155e75;
     --border-radius: 8px;
-    --secondary-color: #fff;
+    --secondary-color: #FFFFFF;
     --border-color: #7fb7c9;
 }
 *{
@@ -19,10 +20,11 @@ body{
     justify-content: center;
     align-items: center;
     background-color: var(--bcg-color);
+    color: var(--secondary-color);
 }
 
 .box{
-    background-color: var(--primary-color);
+    background-color: rgba(255,255,255,0.03);
     padding: 30px;
     width: 400px;
     border-radius: var(--border-radius);
@@ -31,7 +33,7 @@ body{
 .qr-header h1{
     font-size: 26px;
     text-align: center;
-    color: var(--secondary-color);
+    color: var(--accent-color);
     margin-bottom: 24px;
     text-transform: uppercase;
 }
@@ -64,12 +66,12 @@ body{
     justify-content: center;
 }
 .qr-footer a{
-    background-color: var(--secondary-color);
+    background-color: var(--accent-color);
     text-decoration: none;
     font-size: 20px;
     padding: 14px 36px;
     margin-inline: 2px;
-    color: var(--primary-color);
+    color: var(--secondary-color);
     font-weight: 600;
     border-radius: var(--border-radius);
 }
@@ -80,13 +82,52 @@ body{
     padding:20px;
 }
 
-.qr-body img{
+.qr-body img,
+.qr-body canvas{
     max-width: 100%;
-    max-height: 100%;
+    height: auto;
+    display: block;
     margin-block: 10px;
-    padding: 20px;
+    padding: 0;
     border: 0.5px solid var(--border-color);
     border-radius: var(--border-radius);
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    background: transparent;
+}
+
+/* Theme toggle styles */
+.theme-toggle{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+.theme-toggle button{
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--secondary-color);
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Watermark */
+.watermark{
+    position: fixed;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: rgba(255,255,255,0.14);
+    pointer-events: none;
+}
+
+/* Light theme overrides */
+body[data-theme="light"]{
+    --bcg-color: #f5f7fb;
+    --accent-color: #10B981;
+    --secondary-color: #0b1220;
+    --border-color: rgba(0,0,0,0.08);
 }
 
 @media screen and (max-width:520px){
